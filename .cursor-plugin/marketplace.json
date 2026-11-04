@@ -1,0 +1,12 @@
+{
+  "name": "menta",
+  "owner": { "name": "Crossmint" },
+  "metadata": { "description": "Menta, from this repository." },
+  "plugins": [
+    {
+      "name": "menta",
+      "source": "plugins/menta",
+      "description": "Buys, orders, books, returns and cancels things at online stores for you, through Crossmint checkouts. You approve every spending limit yourself; the assistant never can."
+    }
+  ]
+}

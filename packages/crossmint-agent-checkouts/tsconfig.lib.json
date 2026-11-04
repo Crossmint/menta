@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "lib-dist",
+    "rootDir": "extension/lib"
+  },
+  "include": [
+    "extension/lib/address-chat.ts",
+    "extension/lib/address-draft.ts",
+    "extension/lib/address-labels.ts",
+    "extension/lib/secret-fields.ts"
+  ]
+}

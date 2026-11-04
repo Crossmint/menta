@@ -1,0 +1,36 @@
+Menta by Crossmint
+Copyright 2026 Crossmint and contributors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party material
+--------------------
+
+This product includes or redistributes the following third-party material,
+each under its own license:
+
+- Lobe Icons (https://github.com/lobehub/lobe-icons), MIT License:
+  the OpenAI, Claude and Grok marks in
+  apps/web/app/_components/brand-marks.tsx.
+
+- Simple Icons (https://simpleicons.org), CC0 1.0:
+  the Cursor mark in apps/web/app/_components/brand-marks.tsx and the card
+  network marks in packages/agent/src/card-brands.ts.
+
+- The Crossmint logo in apps/web/app/_components/brand-marks.tsx, from
+  @crossmint/client-sdk-react-ui (CrossmintLogoV2), Apache License 2.0.
+
+- Geist and Geist Mono fonts (https://github.com/vercel/geist-font),
+  SIL Open Font License 1.1, served by the app.
+
+Trademarks
+----------
+
+OpenAI, ChatGPT, Anthropic, Claude, xAI, Grok, Cursor, Google, Apple, iMessage,
+Meta, WhatsApp, Visa, Mastercard, American Express, Discover, JCB, Diners Club
+and Crossmint are trademarks of their respective owners. They are used only to
+identify their products and services; no endorsement is implied.
+
+The Apache License does not grant permission to use the names, logos or
+trademarks of Crossmint or Menta by Crossmint. Forks and derivative works may not
+present themselves as Crossmint or as Menta by Crossmint.

@@ -1,0 +1,36 @@
+/*
+ * Menta's color and shadow tokens: the one source for the web app and the
+ * in-host card (through ./theme.css).
+ */
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-ink-hover: #262626;
+  --color-on-ink: #ffffff;
+  --color-surface: #ffffff;
+  --color-muted: #737373;
+  --color-soft: #404040;
+  --color-quiet: #525252;
+  --color-faint: #a1a1aa;
+  --color-placeholder: #a3a3a3;
+  --color-line: #ebebeb;
+  --color-line-strong: #d4d4d8;
+  --color-line-card: #e4e4e7;
+  --color-page: #f6f6f7;
+  --color-rail: #fafafa;
+  --color-rail-line: #f0f0f0;
+  --color-chip: #f4f4f5;
+  /* The leaf's green, dark enough for small text on white. */
+  --color-accent: #087f41;
+  --color-accent-soft: #e7f6ed;
+  --color-attention: #f97316;
+  --color-attention-ink: #c2410c;
+  --color-attention-soft: #fff1e8;
+  --color-success: #15803d;
+  --color-success-soft: #ecfdf3;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 4%), 0 24px 64px rgb(0 0 0 / 8%);
+  --shadow-composer: 0 1px 2px rgb(0 0 0 / 4%), 0 16px 48px rgb(0 0 0 / 7%);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 4%), 0 12px 32px rgb(0 0 0 / 5%);
+}

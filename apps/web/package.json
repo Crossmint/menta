@@ -1,0 +1,45 @@
+{
+  "name": "@oca/web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The Menta web app: chat, settings, secure checkout page and the MCP endpoint.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crossmint/menta",
+    "directory": "apps/web"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "vercel-build": "node ../../scripts/migrate.mjs && pnpm build",
+    "build": "pnpm -w build:packages && pnpm --filter @oca/agent build:runtime && EVE_NEXT_PRODUCTION_PORT=4357 next build --webpack",
+    "start": "EVE_NEXT_PRODUCTION_PORT=4357 next start --hostname 127.0.0.1"
+  },
+  "dependencies": {
+    "@crossmint/client-sdk-react-ui": "4.13.1",
+    "@oca/agent": "workspace:*",
+    "@oca/client": "workspace:*",
+    "@oca/crossmint-agent-cards": "workspace:*",
+    "@oca/crossmint-agent-checkouts": "workspace:*",
+    "@radix-ui/react-dialog": "1.1.23",
+    "@tailwindcss/postcss": "4.3.3",
+    "ai": "7.0.105",
+    "eve": "0.71.0",
+    "geist": "1.7.2",
+    "heic-to": "1.5.2",
+    "iso-3166": "4.4.0",
+    "libphonenumber-js": "1.13.15",
+    "next": "16.3.8",
+    "postcss": "8.5.29",
+    "posthog-js": "1.445.1",
+    "react": "19.2.6",
+    "react-day-picker": "9.14.0",
+    "react-dom": "19.2.6",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "stytch": "14.2.0",
+    "tailwindcss": "4.3.3",
+    "zod": "4.5.4"
+  }
+}

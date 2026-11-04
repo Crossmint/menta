@@ -1,0 +1,191 @@
+import type { UiMessages } from "./en.js";
+
+export const it: UiMessages = {
+  common: {
+    yes: "Sì",
+    no: "No",
+    tryAgain: "Riprova",
+    cancel: "Annulla",
+    poweredBy: "Con tecnologia {logo}",
+    quoted: "“{text}”",
+  },
+  status: {
+    starting: "Avvio",
+    working: "In corso",
+    readyToPay: "Pronto per pagare",
+    needsAnswer: "Serve la tua risposta",
+    needsSecureStep: "Serve un passaggio sicuro",
+    storeQuestion: "Domanda del negozio",
+    needsYou: "Serve il tuo intervento",
+    orderPlaced: "Ordine effettuato",
+    couldntBuy: "Acquisto non riuscito",
+    couldntBuyBecause: "Acquisto non riuscito · {reason}",
+    blocked: "Bloccato",
+    notConfirmed: "Non confermato",
+    stopped: "Interrotto",
+    canceled: "Annullato",
+    done: "Fatto",
+    cancelingWaiting: "Annullamento · in attesa del negozio",
+    approvedWaiting: "Approvato · in attesa del negozio",
+    sentWaiting: "Inviato · in attesa del negozio",
+  },
+  blocked: {
+    "merchant.access_blocked": "Il negozio ha bloccato l'accesso",
+    "merchant.checkout_error": "Errore nel pagamento del negozio",
+    "merchant.fulfillment_unavailable": "Non consegnano lì",
+    "merchant.human_verification_required":
+      "Il negozio chiede una verifica umana",
+    "merchant.no_safe_path": "Nessun modo sicuro per pagare",
+    "merchant.payment_declined": "Pagamento rifiutato",
+    "policy.max_cost_exceeded": "Oltre il tuo limite",
+    "product.item_unavailable": "Articolo non disponibile",
+    "product.requested_option_unavailable": "Opzione non disponibile",
+  },
+  failures: {
+    browser_session_lost: "La connessione con il negozio si è interrotta.",
+    browser_location_unsupported:
+      "Il negozio non è disponibile dalla nostra posizione.",
+    cost_limit: "Il totale avrebbe superato il tuo limite.",
+    input_expired:
+      "La richiesta del negozio è scaduta prima di ricevere risposta.",
+    model_error: "L'agente di acquisto ha avuto un problema.",
+    runtime_error: "L'acquisto si è interrotto prima di finire.",
+    accounting_unavailable:
+      "Crossmint non ha potuto confermare lo stato del pagamento.",
+    cancelled: "L'acquisto è stato annullato.",
+    reconciliation_required:
+      "Non sappiamo se il negozio ha effettuato questo ordine. Non riacquistarlo ancora: potresti pagare due volte.",
+    other: "L'acquisto si è interrotto prima di finire.",
+  },
+  outcome: {
+    receipt: "Ordine confermato dal negozio. Ricevuta salvata.",
+    noReceipt:
+      "Il negozio ha confermato l'ordine. Nessuna ricevuta è stata salvata, quindi cerca la conferma del negozio nella tua email.",
+    total: "Totale",
+    order: "Ordine {id}",
+    deliveringTo: "Consegna a {label} · {place}",
+  },
+  progress: {
+    stillWorking: "Ancora in corso…",
+  },
+  settled: {
+    answered: "Risposto",
+    approved: "Approvato",
+    sentSecurely: "Inviato in modo sicuro",
+    doneThen: "{done} · {outcome}",
+    shownAbove: "Mostrato sopra",
+    waitingBelow: "Ti aspetta qui sotto",
+    started: "Acquisto avviato · fino a {amount}",
+    showItHere: "Mostra qui",
+  },
+  form: {
+    choosePlaceholder: "Scegli…",
+    showMore: "Mostra altro",
+    showLess: "Mostra meno",
+    somethingElse: "Altro",
+    somethingElsePlaceholder: "Di' al negozio cosa vuoi invece",
+    backToOptions: "Torna alle opzioni",
+    sentWaiting: "Inviato. In attesa del negozio.",
+    answerInChat: "Rispondi in chat.",
+    choose: "Scegli {name}",
+    sending: "Invio…",
+    send: "Invia",
+    sendSecurely: "Invia in modo sicuro",
+    secretNote: "Va direttamente al negozio. Io non lo vedo mai.",
+    secretNoteAssistant:
+      "Va direttamente al negozio. Il tuo assistente non lo vede mai.",
+    expiresIn: "scade tra {time}",
+    expiresAt: "valida fino a {time}",
+    expiringNow: "sta per scadere",
+  },
+  payment: {
+    exactTo: "Importo esatto a {merchant}",
+    upToTo: "Fino a questo importo a {merchant}",
+    deliveryTo: "Consegna a {label} · {place}",
+    approvedWaiting: "Approvato. In attesa del negozio.",
+    sending: "Invio della tua approvazione al negozio…",
+    securedNote:
+      "Protetto da Crossmint. Non viene addebitato nulla finché non approvi.",
+    setUpLimit: "Imposta un limite di spesa",
+    lede: "Imposta quanto può spendere il tuo assistente con la tua carta, per questo ordine e i prossimi. Puoi revocarlo in qualsiasi momento.",
+  },
+  approval: {
+    payWith: "Paga con",
+    chooseCard: "Scegli una carta",
+    addCard: "Aggiungi una carta",
+    securityCode: "Codice di sicurezza",
+    cvcFront: "Inserisci il codice di 4 cifre sul fronte della tua carta.",
+    cvcBack: "Inserisci il codice di 3 cifre sul retro della tua carta.",
+    cvcNote:
+      "Crossmint conserva questo codice. Il negozio e il tuo assistente non lo vedono mai.",
+    useDifferentCard: "Usa un'altra carta",
+    cardsDidntLoad: "Le carte salvate non si sono caricate.",
+    orAddHere: "oppure aggiungine una qui.",
+    addHereOrMenta: "Aggiungine una qui, oppure approva su Menta.",
+    approve: "Approva {amount}",
+    approving: "Approvazione…",
+    waitingCheck: "In attesa della verifica della carta…",
+    confirming: "Conferma con la tua carta…",
+    approved: "Approvato",
+    expires: "Scade {date}",
+    noRail:
+      "Questa carta non si può ancora usare per i pagamenti degli agenti. Prova un'altra carta.",
+    visaRefused:
+      "Visa non ha accettato questo negozio per i pagamenti degli agenti. Prova un'altra carta.",
+    mastercardRefused:
+      "Mastercard non ha accettato questo negozio per i pagamenti degli agenti. Prova un'altra carta.",
+    expired:
+      "Questa approvazione è scaduta. Chiedi al tuo assistente di riprovare.",
+    create: "Impossibile avviare il pagamento con questa carta. Riprova.",
+    register:
+      "Impossibile configurare questa carta per i pagamenti degli agenti. Riprova.",
+    check:
+      "La verifica della carta non è andata a buon fine. Riprova o usa un'altra carta.",
+    slow: "La tua carta non ha ancora confermato. Riprova tra un attimo.",
+    notRevoked:
+      "Impossibile annullare questo limite di spesa. Revocalo in Limiti di spesa su Menta.",
+  },
+  secure: {
+    signInTitle: "Accedi a {store}",
+    signInLine: "{store} ti chiede di accedere per continuare l'ordine.",
+    newPasswordTitle: "Crea la tua password di {store}",
+    codeTitle: "Inserisci il codice che ti ha inviato {store}",
+    codeLine: "Controlla la tua email o il telefono.",
+    detailsTitle: "{store} ha bisogno di alcuni dati privati",
+    fillOnMenta: "Compila su Menta",
+    fillOnMentaNote:
+      "Inseriscilo in modo sicuro su Menta. Va direttamente al negozio e il tuo assistente non lo vede mai.",
+    loading: "Caricamento del modulo sicuro di Crossmint…",
+    notReady: "Il campo sicuro non è pronto.",
+  },
+  header: {
+    more: "altri",
+    moreLabel: "Mostra l'acquisto successivo (altri {count})",
+    watchLive: "Guarda in diretta",
+    watching: "Stai guardando",
+    closeLiveView: "Chiudi la diretta",
+    cancelCheckout: "Annulla acquisto",
+  },
+  card: {
+    noCheckout: "Nessun acquisto",
+    waiting: "In attesa dell'acquisto…",
+    connecting: "Connessione all'app…",
+    onlyInHosts: "Questa vista mostra gli acquisti dentro ChatGPT o Claude.",
+    nothingToShow:
+      "Nessun acquisto da mostrare qui. Chiedi in chat a che punto è.",
+    whichAddress: "A quale indirizzo va inviato? Rispondi in chat.",
+    whereTo: "Dove va inviato? Rispondi in chat.",
+    didntStart: "Non avviato: {reason}",
+    cantShow:
+      "Menta non ha potuto mostrare questo acquisto qui. Chiedi in chat a che punto è.",
+    cantRefresh: "Impossibile aggiornare ora. Nuovo tentativo in corso.",
+    couldntSend: "Invio non riuscito. Riprova, oppure rispondi in chat.",
+    answerFailed:
+      "Quella risposta non è andata a buon fine. Ecco lo stato più recente.",
+    somethingWrong: "Qualcosa è andato storto. Riprova.",
+    pausedUpdates: "Aggiornamenti in pausa.",
+    checkAgain: "Controlla di nuovo",
+    backToChat: "Torna alla chat",
+    backInChat: "Di nuovo in chat",
+  },
+};

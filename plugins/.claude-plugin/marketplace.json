@@ -1,0 +1,12 @@
+{
+  "name": "oca-local",
+  "description": "Menta, from this repository.",
+  "owner": { "name": "Crossmint" },
+  "plugins": [
+    {
+      "name": "menta",
+      "source": "./menta",
+      "description": "Buys things online for you through Crossmint checkouts. You approve every spending limit yourself; the assistant never can."
+    }
+  ]
+}

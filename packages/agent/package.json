@@ -1,0 +1,108 @@
+{
+  "name": "@oca/agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Menta agent: Eve runtime, Stytch auth, MCP server, checkout card and web push.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crossmint/menta",
+    "directory": "packages/agent"
+  },
+  "type": "module",
+  "exports": {
+    "./memory": {
+      "types": "./dist/memory.d.ts",
+      "default": "./dist/memory.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "default": "./dist/auth/index.js"
+    },
+    "./web": {
+      "types": "./dist/web/index.d.ts",
+      "default": "./dist/web/index.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp/index.d.ts",
+      "default": "./dist/mcp/index.js"
+    },
+    "./card-brands": {
+      "types": "./dist/card-brands.d.ts",
+      "default": "./dist/card-brands.js"
+    },
+    "./approval": {
+      "types": "./dist/approval.d.ts",
+      "default": "./dist/approval.js"
+    },
+    "./dock": {
+      "types": "./dist/dock.d.ts",
+      "default": "./dist/dock.js"
+    },
+    "./crossmint": {
+      "types": "./dist/crossmint.d.ts",
+      "default": "./dist/crossmint.js"
+    },
+    "./location": {
+      "types": "./dist/location.d.ts",
+      "default": "./dist/location.js"
+    },
+    "./task": {
+      "types": "./dist/task.d.ts",
+      "default": "./dist/task.js"
+    },
+    "./ui": {
+      "types": "./dist/ui/index.d.ts",
+      "default": "./dist/ui/index.js"
+    },
+    "./ui/logic": {
+      "types": "./dist/ui/logic.d.ts",
+      "default": "./dist/ui/logic.js"
+    },
+    "./ui/approval": {
+      "types": "./dist/ui/approval.d.ts",
+      "default": "./dist/ui/approval.js"
+    },
+    "./push": {
+      "types": "./dist/push.d.ts",
+      "default": "./dist/push.js"
+    },
+    "./forget-user": {
+      "types": "./dist/forget-user.d.ts",
+      "default": "./dist/forget-user.js"
+    }
+  },
+  "scripts": {
+    "build": "node card/build.mjs && tsc -p tsconfig.build.json",
+    "build:runtime": "eve build"
+  },
+  "dependencies": {
+    "@crossmint/client-sdk-base": "4.7.0",
+    "@crossmint/rest-js": "0.2.0",
+    "@modelcontextprotocol/ext-apps": "2.0.3",
+    "@modelcontextprotocol/server": "2.3.1",
+    "@neondatabase/serverless": "1.2.0",
+    "@oca/crossmint-agent-cards": "workspace:*",
+    "@oca/crossmint-agent-checkouts": "workspace:*",
+    "ai": "7.0.105",
+    "eve": "0.71.0",
+    "jose": "5.10.0",
+    "just-bash": "3.1.0",
+    "stytch": "14.2.0",
+    "web-push": "3.6.7",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@crossmint/client-sdk-react-ui": "4.13.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/web-push": "3.6.4",
+    "@workflow/world-postgres": "5.0.1",
+    "esbuild": "0.28.2",
+    "geist": "1.7.2",
+    "postcss": "8.5.29",
+    "preact": "10.29.8",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwindcss": "4.3.3"
+  }
+}

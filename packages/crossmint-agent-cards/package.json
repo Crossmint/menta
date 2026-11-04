@@ -1,0 +1,48 @@
+{
+  "name": "@oca/crossmint-agent-cards",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Eve extension for Crossmint Agent Cards: hands the user to the saved-card page, plus its browser component.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crossmint/menta",
+    "directory": "packages/crossmint-agent-cards"
+  },
+  "type": "module",
+  "eve": {
+    "extension": {
+      "source": "./extension",
+      "dist": "./dist/server/extension"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/server/index.d.ts",
+      "default": "./dist/server/index.mjs"
+    },
+    "./tools": {
+      "types": "./dist/server/tools/index.d.ts",
+      "default": "./dist/server/tools/index.mjs"
+    },
+    "./browser": {
+      "types": "./dist/browser/index.d.ts",
+      "default": "./dist/browser/index.js"
+    }
+  },
+  "scripts": {
+    "build": "eve extension build && tsc -p tsconfig.browser.json"
+  },
+  "dependencies": {
+    "@crossmint/client-sdk-react-ui": "4.13.1",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "eve": "0.71.0"
+  },
+  "peerDependencies": {
+    "eve": "0.71.0"
+  }
+}

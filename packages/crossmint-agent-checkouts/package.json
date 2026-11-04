@@ -1,0 +1,62 @@
+{
+  "name": "@oca/crossmint-agent-checkouts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Eve extension for Crossmint Agent Checkouts: start, read, answer and cancel checkout runs.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crossmint/menta",
+    "directory": "packages/crossmint-agent-checkouts"
+  },
+  "type": "module",
+  "eve": {
+    "extension": {
+      "source": "./extension",
+      "dist": "./dist/extension"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./tools": {
+      "types": "./dist/tools/index.d.ts",
+      "default": "./dist/tools/index.mjs"
+    },
+    "./checkouts": {
+      "types": "./dist/extension/lib/checkouts.d.ts",
+      "default": "./dist/extension/lib/checkouts.mjs"
+    },
+    "./address-chat": {
+      "types": "./lib-dist/address-chat.d.ts",
+      "default": "./lib-dist/address-chat.js"
+    },
+    "./address-draft": {
+      "types": "./lib-dist/address-draft.d.ts",
+      "default": "./lib-dist/address-draft.js"
+    },
+    "./secret-fields": {
+      "types": "./lib-dist/secret-fields.d.ts",
+      "default": "./lib-dist/secret-fields.js"
+    },
+    "./address-labels": {
+      "types": "./lib-dist/address-labels.d.ts",
+      "default": "./lib-dist/address-labels.js"
+    }
+  },
+  "scripts": {
+    "build": "eve extension build && tsc -p tsconfig.lib.json"
+  },
+  "dependencies": {
+    "zod": "4.5.4",
+    "@crossmint/rest-js": "0.2.0"
+  },
+  "devDependencies": {
+    "eve": "0.71.0"
+  },
+  "peerDependencies": {
+    "eve": "0.71.0"
+  }
+}
