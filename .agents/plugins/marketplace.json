@@ -1,0 +1,12 @@
+{
+  "name": "oca-local",
+  "interface": { "displayName": "Menta (local)" },
+  "plugins": [
+    {
+      "name": "menta",
+      "source": { "source": "local", "path": "./plugins/menta" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Shopping"
+    }
+  ]
+}

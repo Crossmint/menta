@@ -1,0 +1,13 @@
+{
+  "name": "menta",
+  "displayName": "Menta",
+  "version": "0.1.2",
+  "description": "Buys, orders, books, returns and cancels things at online stores for you, through Crossmint checkouts. You approve every spending limit yourself; the assistant never can.",
+  "author": {
+    "name": "Crossmint",
+    "url": "https://www.crossmint.com"
+  },
+  "homepage": "https://menta.crossmint.com",
+  "license": "Apache-2.0",
+  "keywords": ["shopping", "checkout", "crossmint", "commerce", "orders"]
+}

@@ -1,0 +1,193 @@
+import type { UiMessages } from "./en.js";
+
+export const nl: UiMessages = {
+  common: {
+    yes: "Ja",
+    no: "Nee",
+    tryAgain: "Opnieuw proberen",
+    cancel: "Annuleren",
+    poweredBy: "Mogelijk gemaakt door {logo}",
+    quoted: "‘{text}’",
+  },
+  status: {
+    starting: "Starten",
+    working: "Bezig",
+    readyToPay: "Klaar om te betalen",
+    needsAnswer: "Wacht op je antwoord",
+    needsSecureStep: "Veilige stap nodig",
+    storeQuestion: "Vraag van de winkel",
+    needsYou: "Heeft je nodig",
+    orderPlaced: "Besteld",
+    couldntBuy: "Kopen mislukt",
+    couldntBuyBecause: "Kopen mislukt · {reason}",
+    blocked: "Geblokkeerd",
+    notConfirmed: "Niet bevestigd",
+    stopped: "Gestopt",
+    canceled: "Geannuleerd",
+    done: "Klaar",
+    cancelingWaiting: "Annuleren · wacht op de winkel",
+    approvedWaiting: "Goedgekeurd · wacht op de winkel",
+    sentWaiting: "Verstuurd · wacht op de winkel",
+  },
+  blocked: {
+    "merchant.access_blocked": "Winkel blokkeerde toegang",
+    "merchant.checkout_error": "Fout bij afrekenen in de winkel",
+    "merchant.fulfillment_unavailable": "Kan daar niet bezorgen",
+    "merchant.human_verification_required": "Winkel wil een menselijke check",
+    "merchant.no_safe_path": "Geen veilige manier om af te rekenen",
+    "merchant.payment_declined": "Betaling geweigerd",
+    "policy.max_cost_exceeded": "Boven je limiet",
+    "product.item_unavailable": "Artikel niet beschikbaar",
+    "product.requested_option_unavailable": "Optie niet beschikbaar",
+  },
+  failures: {
+    browser_session_lost: "De verbinding met de winkel is verbroken.",
+    browser_location_unsupported:
+      "De winkel is niet beschikbaar vanaf onze locatie.",
+    cost_limit: "Het totaal zou boven je limiet zijn uitgekomen.",
+    input_expired:
+      "Het verzoek van de winkel is verlopen voordat het werd beantwoord.",
+    model_error: "De checkout-agent liep tegen een probleem aan.",
+    runtime_error: "De checkout is gestopt voordat hij klaar was.",
+    accounting_unavailable: "Crossmint kon de betaalstatus niet bevestigen.",
+    cancelled: "De checkout is geannuleerd.",
+    reconciliation_required:
+      "We weten niet of de winkel deze bestelling heeft geplaatst. Koop het nog niet opnieuw: misschien betaal je dan twee keer.",
+    other: "De checkout is gestopt voordat hij klaar was.",
+  },
+  outcome: {
+    receipt: "Bestelling bevestigd door de winkel. Bon opgeslagen.",
+    noReceipt:
+      "De winkel heeft de bestelling bevestigd. Er is geen bon opgeslagen, dus kijk in je e-mail voor de bevestiging van de winkel.",
+    total: "Totaal",
+    order: "Bestelling {id}",
+    deliveringTo: "Bezorging bij {label} · {place}",
+  },
+  progress: {
+    stillWorking: "Nog bezig…",
+  },
+  settled: {
+    answered: "Beantwoord",
+    approved: "Goedgekeurd",
+    sentSecurely: "Veilig verstuurd",
+    doneThen: "{done} · {outcome}",
+    shownAbove: "Hierboven getoond",
+    waitingBelow: "Wacht hieronder op je",
+    started: "Checkout gestart · tot {amount}",
+    showItHere: "Hier tonen",
+  },
+  form: {
+    choosePlaceholder: "Kies…",
+    showMore: "Meer tonen",
+    showLess: "Minder tonen",
+    somethingElse: "Iets anders",
+    somethingElsePlaceholder: "Vertel de winkel wat je liever wilt",
+    backToOptions: "Terug naar de opties",
+    sentWaiting: "Verstuurd. Wacht op de winkel.",
+    answerInChat: "Antwoord in de chat.",
+    choose: "Kies {name}",
+    sending: "Versturen…",
+    send: "Versturen",
+    sendSecurely: "Veilig versturen",
+    secretNote: "Gaat rechtstreeks naar de winkel. Ik zie het nooit.",
+    secretNoteAssistant:
+      "Gaat rechtstreeks naar de winkel. Je assistent ziet het nooit.",
+    expiresIn: "verloopt over {time}",
+    expiresAt: "verloopt {time}",
+    expiringNow: "verloopt nu",
+  },
+  payment: {
+    exactTo: "Exact bedrag aan {merchant}",
+    upToTo: "Tot dit bedrag aan {merchant}",
+    deliveryTo: "Bezorging bij {label} · {place}",
+    approvedWaiting: "Goedgekeurd. Wacht op de winkel.",
+    sending: "Je goedkeuring gaat naar de winkel…",
+    securedNote:
+      "Beveiligd door Crossmint. Er wordt niets afgeschreven tot je goedkeurt.",
+    setUpLimit: "Stel een bestedingslimiet in",
+    lede: "Stel in hoeveel je assistent met je kaart mag uitgeven, voor deze bestelling en de volgende. Je kunt hem altijd intrekken.",
+  },
+  approval: {
+    payWith: "Betalen met",
+    chooseCard: "Kies een kaart",
+    addCard: "Kaart toevoegen",
+    saveCard: "Kaart opslaan",
+    savingCard: "Opslaan…",
+    securityCode: "Beveiligingscode",
+    cvcFront: "Vul de 4-cijferige code op de voorkant van je kaart in.",
+    cvcBack: "Vul de 3-cijferige code op de achterkant van je kaart in.",
+    cvcNote:
+      "Crossmint bewaart deze code. De winkel en je assistent zien hem nooit.",
+    useDifferentCard: "Andere kaart gebruiken",
+    cardsDidntLoad: "Je opgeslagen kaarten zijn niet geladen.",
+    orAddHere: "of voeg er hier een toe.",
+    addHereOrMenta: "Voeg er hier een toe, of keur goed op Menta.",
+    approve: "{amount} goedkeuren",
+    approving: "Goedkeuren…",
+    waitingCheck: "Wacht op de controle van je kaart…",
+    confirming: "Bevestigen met je kaart…",
+    approved: "Goedgekeurd",
+    expires: "Verloopt {date}",
+    noRail:
+      "Deze kaart kan nog niet worden gebruikt voor betalingen door agents. Probeer een andere kaart.",
+    visaRefused:
+      "Visa accepteerde deze winkel niet voor betalingen door agents. Probeer een andere kaart.",
+    mastercardRefused:
+      "Mastercard accepteerde deze winkel niet voor betalingen door agents. Probeer een andere kaart.",
+    expired:
+      "Deze goedkeuring is verlopen. Vraag je assistent om het opnieuw te proberen.",
+    create: "De betaling met deze kaart kon niet starten. Probeer het opnieuw.",
+    register:
+      "Deze kaart kon niet worden ingesteld voor betalingen door agents. Probeer het opnieuw.",
+    check:
+      "De controle van je kaart is niet gelukt. Probeer het opnieuw of gebruik een andere kaart.",
+    slow: "Je kaart heeft nog niet bevestigd. Probeer het zo opnieuw.",
+    notRevoked:
+      "Deze bestedingslimiet kon niet worden ingetrokken. Trek hem in bij Bestedingslimieten op Menta.",
+  },
+  secure: {
+    signInTitle: "Inloggen bij {store}",
+    signInLine:
+      "{store} vraagt je in te loggen om de bestelling voort te zetten.",
+    newPasswordTitle: "Maak je wachtwoord voor {store}",
+    codeTitle: "Vul de code van {store} in",
+    codeLine: "Kijk in je e-mail of op je telefoon.",
+    detailsTitle: "{store} heeft een paar privégegevens nodig",
+    fillOnMenta: "Vul het in op Menta",
+    fillOnMentaNote:
+      "Vul het veilig in op Menta. Het gaat rechtstreeks naar de winkel en je assistent ziet het nooit.",
+    loading: "Beveiligd formulier van Crossmint laden…",
+    notReady: "Het beveiligde veld is nog niet klaar.",
+  },
+  header: {
+    more: "meer",
+    moreLabel: "Volgende checkout tonen (nog {count})",
+    watchLive: "Live kijken",
+    watching: "Je kijkt mee",
+    closeLiveView: "Live weergave sluiten",
+    cancelCheckout: "Checkout annuleren",
+  },
+  card: {
+    noCheckout: "Geen checkout",
+    waiting: "Wachten op de checkout…",
+    connecting: "Verbinden met de app…",
+    onlyInHosts: "Checkouts worden hier alleen getoond in ChatGPT of Claude.",
+    nothingToShow:
+      "Geen checkout om hier te tonen. Vraag in de chat naar de status.",
+    whichAddress: "Naar welk adres moet het? Antwoord in de chat.",
+    whereTo: "Waar moet het naartoe? Antwoord in de chat.",
+    didntStart: "Niet gestart: {reason}",
+    cantShow:
+      "Menta kon deze checkout hier niet tonen. Vraag in de chat naar de status.",
+    cantRefresh: "Vernieuwen lukt nu niet. We proberen het opnieuw.",
+    couldntSend:
+      "Dat kon niet worden verstuurd. Probeer het opnieuw, of antwoord in de chat.",
+    answerFailed:
+      "Dat antwoord is niet aangekomen. De laatste stand wordt getoond.",
+    somethingWrong: "Er ging iets mis. Probeer het opnieuw.",
+    pausedUpdates: "Updates gepauzeerd.",
+    checkAgain: "Opnieuw controleren",
+    backToChat: "Terug naar de chat",
+    backInChat: "Terug in de chat",
+  },
+};

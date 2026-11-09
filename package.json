@@ -1,0 +1,52 @@
+{
+  "name": "oca",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Menta by Crossmint: an agent that buys things online, in a web chat and in ChatGPT, Claude and other MCP hosts.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crossmint/oca"
+  },
+  "type": "module",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm build:packages && node --env-file-if-exists=apps/web/.env.local scripts/dev.mjs",
+    "build:packages": "pnpm --filter './packages/**' -r run build",
+    "build": "pnpm --filter @oca/web build",
+    "verify": "biome check . && pnpm build:packages && tsc --noEmit",
+    "test": "pnpm build:packages && vitest run",
+    "db:migrate": "node --env-file-if-exists=apps/web/.env.local scripts/migrate.mjs",
+    "card:fixtures": "pnpm build:packages && node packages/agent/card/fixtures.mjs",
+    "plugin:sync": "pnpm build:packages && node scripts/plugin-sync.mjs && biome format --write plugins"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@crossmint/rest-js": "0.2.0",
+    "@modelcontextprotocol/client": "2.3.1",
+    "@neondatabase/serverless": "1.2.0",
+    "@oca/agent": "workspace:*",
+    "@oca/crossmint-agent-cards": "workspace:*",
+    "@oca/crossmint-agent-checkouts": "workspace:*",
+    "@types/node": "24.19.1",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "ai": "7.0.105",
+    "esbuild": "0.28.2",
+    "eve": "0.71.0",
+    "pg": "8.20.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.2",
+    "vitest": "5.0.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
+}

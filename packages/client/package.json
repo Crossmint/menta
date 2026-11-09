@@ -1,0 +1,61 @@
+{
+  "name": "@oca/client",
+  "version": "0.0.0",
+  "private": true,
+  "description": "DOM-free client logic for the web app: checkout following, dock messages, tool steps, photos, location and predictions.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crossmint/oca",
+    "directory": "packages/client"
+  },
+  "type": "module",
+  "exports": {
+    "./buyer-details": {
+      "types": "./dist/buyer-details.d.ts",
+      "default": "./dist/buyer-details.js"
+    },
+    "./checkouts": {
+      "types": "./dist/checkouts.d.ts",
+      "default": "./dist/checkouts.js"
+    },
+    "./conversation": {
+      "types": "./dist/conversation.d.ts",
+      "default": "./dist/conversation.js"
+    },
+    "./location": {
+      "types": "./dist/location.d.ts",
+      "default": "./dist/location.js"
+    },
+    "./photos": {
+      "types": "./dist/photos.d.ts",
+      "default": "./dist/photos.js"
+    },
+    "./predictions": {
+      "types": "./dist/predictions.d.ts",
+      "default": "./dist/predictions.js"
+    },
+    "./secure-page": {
+      "types": "./dist/secure-page.d.ts",
+      "default": "./dist/secure-page.js"
+    },
+    "./thinking": {
+      "types": "./dist/thinking.d.ts",
+      "default": "./dist/thinking.js"
+    },
+    "./tool-steps": {
+      "types": "./dist/tool-steps.d.ts",
+      "default": "./dist/tool-steps.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@oca/agent": "workspace:*",
+    "@oca/crossmint-agent-checkouts": "workspace:*"
+  },
+  "devDependencies": {
+    "eve": "0.71.0"
+  }
+}

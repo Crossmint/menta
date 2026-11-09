@@ -1,0 +1,23 @@
+node_modules/
+dist/
+lib-dist/
+.next/
+.eve/
+.output/
+.vercel/
+coverage/
+artifacts/
+test-results/
+playwright-report/
+*.tsbuildinfo
+next-env.d.ts
+.env
+.env.*
+!.env.example
+.DS_Store
+.workflow-data/
+.workflow-vitest/
+packages/agent/src/mcp/card.generated.ts
+
+# The ChatGPT directory upload (plugins/menta/README.md)
+/menta-chatgpt.zip

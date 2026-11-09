@@ -1,0 +1,88 @@
+/*
+ * The checkout card's stylesheet: Tailwind over the web app's own tokens
+ * (src/ui/theme.css), compiled by card/build.mjs from the classes in the card,
+ * its secure script and the shared components. Only the card's page frame
+ * lives here.
+ */
+@import "tailwindcss";
+@import "../src/ui/theme.css";
+@source "./checkout-card.tsx";
+@source "./secure-entry.tsx";
+@source "../src/ui";
+
+:root {
+  /* Geist, from our origin (see loadFonts in checkout-card.tsx). */
+  --font-geist-sans: "Geist";
+  --font-geist-mono: "Geist Mono";
+  /* The host's chat colors (applyHostColors in checkout-card.tsx), with ChatGPT's light ones until it says. */
+  --ground: #fcfcfc;
+  --card: #ffffff;
+  --well: #f3f3f3;
+  --hair: rgb(0 0 0 / 10%);
+  --hair-strong: rgb(0 0 0 / 16%);
+  color: var(--color-ink);
+  background: var(--ground);
+  font-family: var(--font-sans);
+  line-height: 1.45;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-size: 14px;
+  background: var(--ground);
+  padding: var(--safe-top, 0) var(--safe-right, 0) var(--safe-bottom, 0)
+    var(--safe-left, 0);
+}
+
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+/* Small controls on touch screens: a hit area of at least 44px. */
+@media (pointer: coarse) {
+  .tap::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Fullscreen and pip: a centered column with room to breathe. */
+html[data-mode="fullscreen"] #card,
+html[data-mode="pip"] #card {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+[data-theme="dark"] {
+  --hair-strong: rgb(255 255 255 / 18%);
+}
+
+/* The card itself: flat on the host's own frame (ChatGPT and Claude draw one
+   around it), so no second border or shadow inside theirs. */
+.card-panel {
+  background: transparent;
+}
+
+/* A store's icon as an app icon: always on white, like the homepage's. */
+.store-tile {
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 6%),
+    0 1px 2px rgb(0 0 0 / 10%),
+    inset 0 -1px 0 rgb(0 0 0 / 4%);
+}
+
+/* The leaf's gradient, for a placed order's check. */
+.leaf-fill {
+  background-color: #10b45e;
+  background-image: linear-gradient(135deg, #3dd64f, #10b45e);
+}

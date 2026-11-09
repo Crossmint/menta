@@ -1,0 +1,95 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "menta",
+  "version": "0.1.2",
+  "description": "Buys, orders, books, returns and cancels things at online stores for you, through Crossmint checkouts. You approve every spending limit yourself; the assistant never can.",
+  "author": {
+    "name": "Crossmint",
+    "url": "https://www.crossmint.com"
+  },
+  "homepage": "https://menta.crossmint.com",
+  "license": "Apache-2.0",
+  "keywords": ["shopping", "checkout", "crossmint", "commerce", "orders"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Menta",
+        "shortDescription": "Buy anything, anywhere",
+        "longDescription": "Menta lets ChatGPT go from research to placing orders at stores worldwide. Ask it to buy headphones on Amazon, restock groceries or order dinner for delivery.\n\nHow Menta protects you:\n• Your cards stay in a secure, PCI-compliant vault. ChatGPT never sees your card number.\n• You set spending limits. ChatGPT can't spend past them or approve one itself.\n• Orders are in your name at the store, so returns and refunds work as usual.\n• You pay with your own card and keep your points and rewards.\n\nBuilt by Crossmint.",
+        "developerName": "Crossmint",
+        "category": "Productivity",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "websiteURL": "https://menta.crossmint.com",
+        "supportURL": "https://menta.crossmint.com/help#contact",
+        "privacyPolicyURL": "https://menta.crossmint.com/privacy",
+        "termsOfServiceURL": "https://menta.crossmint.com/terms",
+        "defaultPrompt": [
+          "Buy a 4-pack of AA batteries on Amazon, under $15.",
+          "Order a Harvest Bowl from Sweetgreen for pickup at 12:30.",
+          "Where is my last order?"
+        ],
+        "brandColor": "#10b45e",
+        "brandColorDark": "#3dd64f",
+        "composerIcon": "./assets/logo.png",
+        "composerIconDark": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Start a purchase with a spending limit",
+              "prompt": "Buy a 4-pack of AA batteries on Amazon, under $15.",
+              "tools_triggered": "start",
+              "expected_behavior": "Starts a checkout capped at $15 and tells the user when the store needs them. At payment, if none of the user's spending limits covers it, the assistant gives a link to Menta's spending limit page, where the user approves one in Crossmint's secure form; the assistant never approves it. A reviewer account without spending limits can cancel instead of paying."
+            },
+            {
+              "description": "Answer the store's questions",
+              "prompt": "Order a Harvest Bowl from Sweetgreen for pickup at 12:30.",
+              "tools_triggered": "start, continue",
+              "expected_behavior": "Starts a pickup order. When the store asks something (such as the pickup location), the assistant lists the store's own options in chat; the user answers and the checkout continues."
+            },
+            {
+              "description": "Check on an order",
+              "prompt": "Where is my last order?",
+              "tools_triggered": "history",
+              "expected_behavior": "Reports the status of the user's most recent checkout and, for a placed order, the receipt total and store order number exactly as returned."
+            },
+            {
+              "description": "Cancel a checkout",
+              "prompt": "Cancel my Amazon checkout.",
+              "tools_triggered": "history, cancel",
+              "expected_behavior": "Finds the open checkout and cancels it, and says nothing was charged."
+            },
+            {
+              "description": "Set up delivery and payment",
+              "prompt": "Set up Menta.",
+              "tools_triggered": "manage",
+              "expected_behavior": "Gives the Menta links for adding a card (in Crossmint's secure form) and delivery addresses. It never asks for card details in chat."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General knowledge question",
+              "prompt": "What's the capital of Australia?"
+            },
+            {
+              "description": "Sending money to a person",
+              "prompt": "Send $50 to my friend on Venmo."
+            },
+            {
+              "description": "Product research without buying",
+              "prompt": "Compare the battery life of the latest iPhone and Pixel."
+            }
+          ]
+        },
+        "commerce": true,
+        "commerce_description": "Menta buys physical goods (household items, groceries, food for pickup or delivery) at online stores for the user through Crossmint Agent Checkouts. It pays only from spending limits the user approves on Menta's own site. At a checkout's payment, ChatGPT can pick one of those limits that fits the purchase: Menta pays from it only after checking it's the user's and covers the payment (currency, amount left, store), and ChatGPT tells the user. If none fits, the user approves one on Menta's site. ChatGPT can't approve, create or raise a limit, and card details never go through the chat. No ChatGPT-specific fees or surcharges."
+      },
+      "publication": {
+        "release_notes": "ChatGPT explains clearly that a payment still counts against a spending limit when a checkout fails or an order is cancelled."
+      }
+    }
+  }
+}

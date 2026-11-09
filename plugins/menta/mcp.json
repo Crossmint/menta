@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "menta": {
+      "type": "streamable-http",
+      "url": "https://menta.crossmint.com/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "cimd"
+            },
+            "authorizationUrl": "https://menta.crossmint.com/oauth/authorize",
+            "tokenUrl": "https://login.menta.crossmint.com/v1/oauth2/token",
+            "resource": "https://menta.crossmint.com/mcp",
+            "baseScopes": ["commerce:invoke", "offline_access"]
+          }
+        }
+      }
+    }
+  }
+}
