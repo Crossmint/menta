@@ -1,6 +1,6 @@
 # Menta plugin
 
-Menta as an installable plugin for ChatGPT, Codex, Claude, Cursor and Grok Bot. It bundles the Menta MCP server (`https://menta.crossmint.com/mcp`) with two skills: `setup`, the onboarding ChatGPT runs after install, and `buy`, the server's own instructions. Users still sign in to Menta, and Menta pays only from spending limits they approve themselves in Crossmint's form; the assistant never can approve one.
+Menta as an installable plugin for ChatGPT, Codex, Claude, Cursor, Grok Bot and Devin. It bundles the Menta MCP server (`https://menta.crossmint.com/mcp`) with two skills: `setup`, the onboarding ChatGPT runs after install, and `buy`, the server's own instructions. Users still sign in to Menta, and Menta pays only from spending limits they approve themselves in Crossmint's form; the assistant never can approve one.
 
 ## What's here
 
@@ -9,6 +9,7 @@ Menta as an installable plugin for ChatGPT, Codex, Claude, Cursor and Grok Bot. 
 | `plugin.json`, `mcp.json` | ChatGPT and Codex (portable Agent Plugins format; OpenAI presentation, `onboardingSkill`, directory review cases and release notes under `extensions["com.openai"]`) | generated |
 | `.claude-plugin/plugin.json`, `.mcp.json` | Claude Code, claude.ai, Cowork | generated |
 | `.cursor-plugin/plugin.json` | Cursor and Grok Bot (Cursor Marketplace): name, logo, `skills/` and the MCP server inline by URL | generated |
+| `.devin-plugin/plugin.json` | Devin (Devin's marketplace, which pins this folder in `Crossmint/menta` at a commit): listing, the spending limit notice and the MCP server by URL; Devin also loads `skills/` | generated |
 | `../../.cursor-plugin/marketplace.json` | The repo-root Cursor marketplace that points at this folder | by hand (checked by the test) |
 | `skills/setup/SKILL.md` | Onboarding: address, card, how payments are approved | by hand |
 | `skills/buy/SKILL.md` | The MCP server's instructions, verbatim | generated |
@@ -92,9 +93,17 @@ Submitting to the Cursor Marketplace:
 3. Submit the repository URL at cursor.com/marketplace/publish. Cursor reviews every plugin by hand.
 4. After it's listed: in Grok Bot, open the Marketplace, add Menta and sign in. Then set up Grok Bot updates at `/settings#grok-bot` (a routine with a webhook trigger), so the Bot hears when a checkout needs you after it stops.
 
+### Devin
+
+```sh
+devin plugins install --local ./plugins/menta
+```
+
+Start `devin`, sign in to Menta when it asks, then try "Where is my last order?".
+
 ## Submit to the directories
 
-The repository can stay private for ChatGPT and for the Claude connector. Claude's plugin listing and the Cursor Marketplace (Grok Bot) need it public.
+The repository can stay private for ChatGPT and for the Claude connector. Claude's plugin listing, the Cursor Marketplace (Grok Bot) and Devin's marketplace need it public.
 
 ### ChatGPT
 
@@ -102,12 +111,25 @@ The repository can stay private for ChatGPT and for the Claude connector. Claude
 2. At [platform.openai.com/plugins](https://platform.openai.com/plugins), **Upload new or existing plugin**, as Crossmint, with a ZIP of this folder:
 
    ```sh
-   cd plugins/menta && zip -r ../../menta-chatgpt.zip . -x '.claude-plugin/*' '.cursor-plugin/*' '.mcp.json' && cd -
+   cd plugins/menta && zip -r ../../menta-chatgpt.zip . -x '.claude-plugin/*' '.cursor-plugin/*' '.devin-plugin/*' '.mcp.json' && cd -
    ```
 
 3. Verify the domain: set `OPENAI_APPS_CHALLENGE` on Vercel to the token the dashboard shows and redeploy; it's served at `https://menta.crossmint.com/.well-known/openai-apps-challenge`.
 4. Fill in what the package doesn't carry: the demo video URL, and a reviewer account in **Review details** (no MFA: a Stytch email code won't work for reviewers, so use an `OCA_REVIEW_ACCOUNTS` email and its password, and tell reviewers to sign in first at `https://menta.crossmint.com/login?password`, which nothing links to; see `docs/CREDENTIALS.md`). The review cases, commerce declaration, listing URLs and release notes come from `plugin.json`; the MCP server's OAuth (CIMD, with Stytch's authorization and token endpoints, which the upload asks for) from `mcp.json`.
 5. **Submit for review**. After approval, **Publish plugin**. MCP server changes reach the listing without a new ZIP; skills, listing and `mcp.json` changes (such as the OAuth endpoints) need one.
+
+### Devin
+
+[CognitionAI/devin-marketplace](https://github.com/CognitionAI/devin-marketplace) lists outside plugins as a commit of their own repository. Once a change here reaches `Crossmint/menta`, open a pull request there that adds (or moves the `sha` of) this entry in `optionalPlugins` in `.devin-plugin/plugin.json`:
+
+```json
+{
+  "source": "git-subdir",
+  "url": "https://github.com/Crossmint/menta.git",
+  "path": "plugins/menta",
+  "sha": "<full commit sha in Crossmint/menta>"
+}
+```
 
 ### Claude
 
